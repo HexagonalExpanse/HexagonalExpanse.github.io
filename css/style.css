@@ -2,6 +2,28 @@ html {
   scroll-behavior: smooth;
 }
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.headshot {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
 body {
   margin: 40px auto;
   max-width: 650px;
@@ -22,7 +44,10 @@ h1, h2, h3 {
   line-height: 1.2;
 }
 
+/* ---- Navigation ---- */
 nav {
+  display: flex;
+  align-items: center;
   margin-bottom: 2rem;
 }
 
@@ -46,3 +71,53 @@ footer {
   color: #666;
 }
 
+/* ---- Dropdown ---- */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;   /* spaces it like the sibling links */
+}
+
+/* Trigger styled to match nav a exactly */
+.dropdown-trigger {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: #444;
+  cursor: pointer;
+}
+
+.dropdown-trigger:hover {
+  text-decoration: underline;
+}
+
+/* Bold when the active class is applied (on Research or a sub-page) */
+.dropdown-trigger.active {
+  font-weight: bold;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  min-width: 160px;
+  z-index: 100;
+}
+
+.dropdown-menu a {
+  display: block;
+  margin: 0;            /* override nav a's margin-right inside the menu */
+  padding: 0.5rem 0.75rem;
+  white-space: nowrap;
+}
+
+.no-bullets {
+  list-style: none;
+  padding-left: 0;
+}
